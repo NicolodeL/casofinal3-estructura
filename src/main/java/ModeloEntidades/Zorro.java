@@ -18,4 +18,12 @@ public class Zorro extends Animal {
         competidor.salud -= 5; // Disminuye la salud del competidor
         this.salud -= 5; // Disminuye la salud de este animal
     }
+    public Zorro reproducirse(Zorro pareja) {
+        // Crear un nuevo zorro con los atributos promedio de los padres
+        int nuevaSalud = (this.salud + pareja.salud) / 2;
+        int nuevaLongitudDeCola = (this.longitudDeCola + pareja.longitudDeCola) / 2;
+        double nuevaVelocidad = (this.velocidad + pareja.velocidad) / 2;
+
+        return new Zorro("Nueva ubicación", nuevaSalud, 0, "No reproductivo", "Carnívoro", "Pradera", nuevaLongitudDeCola, nuevaVelocidad);
+    }
 }
