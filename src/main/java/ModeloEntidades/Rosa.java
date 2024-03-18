@@ -5,8 +5,13 @@ public class Rosa extends Planta {
     private boolean espinas;
 
     public Rosa(String posicion, int salud, int edad, String estadoReproductivo, String tipo, String habitat, String color, boolean espinas) {
-        super(posicion, salud, edad, estadoReproductivo, "Flor", habitat);
+        super("presa", 5, edad, estadoReproductivo, "Flor", habitat);
         this.color = color;
         this.espinas = espinas;
+    }
+    public void pinchar(Animal animal) {
+        if (espinas) {
+            animal.salud -= 2; // Disminuye la salud del animal en 2 si la rosa tiene espinas
+        }
     }
 }
