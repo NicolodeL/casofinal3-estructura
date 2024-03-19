@@ -18,11 +18,16 @@ public class Zorro extends Animal {
         competidor.salud -= 5; // Disminuye la salud del competidor
         this.salud -= 5; // Disminuye la salud de este animal
     }
-    public Zorro reproducirse(Zorro pareja) {
+    @Override
+    public Zorro reproducirse(Animal pareja) {
+        if (!(pareja instanceof Zorro)) {
+            throw new IllegalArgumentException("La pareja debe ser un Zorro");
+        }
+        Zorro parejaZorro = (Zorro) pareja;
         // Crear un nuevo zorro con los atributos promedio de los padres
-        int nuevaSalud = (this.salud + pareja.salud) / 2;
-        int nuevaLongitudDeCola = (this.longitudDeCola + pareja.longitudDeCola) / 2;
-        double nuevaVelocidad = (this.velocidad + pareja.velocidad) / 2;
+        int nuevaSalud = (this.salud + parejaZorro.salud) / 2;
+        int nuevaLongitudDeCola = (this.longitudDeCola + parejaZorro.longitudDeCola) / 2;
+        double nuevaVelocidad = (this.velocidad + parejaZorro.velocidad) / 2;
 
         return new Zorro("Nueva ubicación", nuevaSalud, 0, "No reproductivo", "Carnívoro", "Pradera", nuevaLongitudDeCola, nuevaVelocidad);
     }

@@ -8,7 +8,5 @@ public abstract class Animal extends Organismo {
         this.alimentacion = alimentacion;
     }
 
-    public Animal reproducirse(Animal pareja) {
-        return null;
-    }
+    public Animal reproducirse(Animal pareja)
 }

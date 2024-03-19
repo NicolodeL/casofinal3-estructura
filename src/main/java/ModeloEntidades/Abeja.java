@@ -13,12 +13,17 @@ public class Abeja extends Animal {
         planta.salud += 2; // Aumenta la salud de la planta
         this.salud += 5; // Aumenta la salud de la abeja
     }
-    public Abeja reproducirse(Abeja pareja) {
+    @Override
+    public Abeja reproducirse(Animal pareja) {
+        if (!(pareja instanceof Abeja)) {
+            throw new IllegalArgumentException("La pareja debe ser una Abeja");
+        }
+        Abeja parejaAbeja = (Abeja) pareja;
         // Crear una nueva abeja con los atributos promedio de los padres
-        int nuevaSalud = (this.salud + pareja.salud) / 2;
-        int nuevoTamañoDeAguijon = (this.tamañoDeAguijon + pareja.tamañoDeAguijon) / 2;
-        String nuevoColor = this.color.equals(pareja.color) ? this.color : "Mixto";
+        int nuevaSalud = (this.salud + parejaAbeja.salud) / 2;
+        int nuevoTamañoDeAguijon = (this.tamañoDeAguijon + parejaAbeja.tamañoDeAguijon) / 2;
+        String nuevoColor = this.color.equals(parejaAbeja.color) ? this.color : "Mixto";
 
-        return new Abeja("presa", nuevaSalud, 0, "No reproductivo", "Abeja", "Pradera", nuevoTamañoDeAguijon, nuevoColor);
+        return new Abeja("Nueva ubicación", nuevaSalud, 0, "No reproductivo", "Abeja", "Pradera", nuevoTamañoDeAguijon, nuevoColor);
     }
 }
