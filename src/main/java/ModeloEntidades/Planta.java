@@ -7,5 +7,5 @@ public class Planta extends Organismo {
         super(posicion, salud, edad, estadoReproductivo, habitat);
         this.tipo = tipo;
     }
-
+    public abstract Planta reproducirse(Planta pareja);
 }
