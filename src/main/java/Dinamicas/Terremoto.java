@@ -14,7 +14,7 @@ public class Terremoto extends Eventos {
 
     @Override
     protected void realizarEvento() {
-        Scanner random;
+        Scanner random = null;
         int probabilidad = random.nextInt(2) + 1;
         if (probabilidad == 1) {
             for (Organismo organismo : organismos) {
@@ -22,8 +22,7 @@ public class Terremoto extends Eventos {
             }
         }
         else {
-            protected abstract void realizarEvento2();
+            enfermedad.realizarEvento();
             }
         }
     }
-}

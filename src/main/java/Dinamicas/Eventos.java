@@ -13,5 +13,5 @@ public abstract class Eventos {
     }
 
     protected abstract void realizarEvento();
-    protected abstract void realizarEvento2();
+
     }
