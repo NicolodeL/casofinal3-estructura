@@ -1,21 +1,13 @@
 package Dinamicas;
 
 import ModeloEntidades.Organismo;
-import ModeloEntidades.Planta;
 import java.util.List;
 
 public class enfermedad {
-    private static List<Organismo> organismos;
 
-    public enfermedad(List<Organismo> organismos) {
-        this.organismos = organismos;
-    }
-
-    public static void realizarEvento() {
+    public static void realizarEvento(List<Organismo> organismos) {
         for (Organismo organismo : organismos) {
-            if (!(organismo instanceof Planta)) {
-                organismo.salud -= 2;
-            }
+            organismo.salud -= 2;
         }
     }
 }
