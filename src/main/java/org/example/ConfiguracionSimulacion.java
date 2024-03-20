@@ -27,4 +27,11 @@ public class ConfiguracionSimulacion {
         String contrasena = scanner.nextLine();
         return USUARIO_CORRECTO.equals(usuario) && CONTRASENA_CORRECTA.equals(contrasena);
     }
+    private void ejecutarSimulacion(int numOrganismos) {
+        // Aquí va el código para ejecutar la simulación
+        // Este es solo un ejemplo, necesitarás implementar la lógica de tu simulación
+        for (int i = 0; i < numOrganismos; i++) {
+            System.out.println("Ejecutando simulación para el organismo " + (i + 1));
+        }
+}
 }
