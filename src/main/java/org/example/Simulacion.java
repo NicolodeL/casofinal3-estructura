@@ -22,6 +22,8 @@ public class Simulacion {
                     if (organismo != otroOrganismo) {
                         if (otroOrganismo instanceof Animal) {
                             ((Animal) organismo).interactuar((Animal) otroOrganismo);
+                            ((Animal) organismo).cazar((Animal) otroOrganismo);
+                            ((Animal) organismo).competir((Animal) otroOrganismo);
                         } else if (otroOrganismo instanceof Rosa) {
                             ((Rosa) otroOrganismo).pinchar((Animal) organismo);
                         }

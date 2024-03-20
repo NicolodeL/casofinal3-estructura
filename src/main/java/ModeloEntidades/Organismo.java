@@ -58,4 +58,8 @@ public abstract class Organismo {
 
     public void interactuar(Animal otroOrganismo) {
     }
+
+    public abstract void cazar(Animal otroOrganismo);
+
+    public abstract void competir(Animal otroOrganismo);
 }
