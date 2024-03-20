@@ -14,4 +14,11 @@ public class Rosa extends Planta {
             animal.salud -= 2; // Disminuye la salud del animal en 2 si la rosa tiene espinas
         }
     }
+    public Rosa polinizar(Abeja abeja) {
+        if (this.getEstadoReproductivo().equals("Reproductivo")) {
+            return new Rosa("Nueva ubicación", 5, 0, "No reproductivo", "Flor", "Pradera", this.color, this.espinas);
+        } else {
+            throw new IllegalStateException("La rosa no está en el estado reproductivo adecuado para ser polinizada");
+        }
+    }
 }
