@@ -10,4 +10,7 @@ public class enfermedad {
             organismo.salud -= 2;
         }
     }
+
+    public static void realizarEvento() {
+    }
 }

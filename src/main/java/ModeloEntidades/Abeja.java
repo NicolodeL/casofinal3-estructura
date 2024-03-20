@@ -4,15 +4,17 @@ public class Abeja extends Animal {
     private int tamañoDeAguijon;
     private String color;
 
-    public Abeja(String posicion, int salud, int edad, String estadoReproductivo, String tipo, String habitat, int tamañoDeAgujon, String color) {
-        super("presa", salud, edad, estadoReproductivo, tipo, "Pradera");
+    public Abeja(String posicion, int salud, int edad, String estadoReproductivo, String tipo, String habitat, int tamañoDeAguijon, String color) {
+        super(posicion, salud, edad, estadoReproductivo, tipo, habitat);
         this.tamañoDeAguijon = tamañoDeAguijon;
         this.color = color;
     }
+
     public void polinizar(Planta planta) {
         planta.salud += 2; // Aumenta la salud de la planta
         this.salud += 5; // Aumenta la salud de la abeja
     }
+
     @Override
     public Abeja reproducirse(Animal pareja) {
         if (!(pareja instanceof Abeja)) {

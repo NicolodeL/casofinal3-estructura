@@ -55,4 +55,7 @@ public abstract class Organismo {
     public void setHabitat(String habitat) {
         this.habitat = habitat;
     }
+
+    public void interactuar(Animal otroOrganismo) {
+    }
 }

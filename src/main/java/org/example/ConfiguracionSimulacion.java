@@ -1,17 +1,21 @@
 package org.example;
 
-import ModeloEntidades.Planta;
-import ModeloEntidades.Organismo;
+import org.example.Simulacion;
+import ModeloEntidades.*;
+import Dinamicas.*;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import static Dinamicas.enfermedad.organismos;
-
 public class ConfiguracionSimulacion {
     private static final String USUARIO_CORRECTO = "admin";
     private static final String CONTRASENA_CORRECTA = "password";
+    private Simulacion simulacion;
+
+    public ConfiguracionSimulacion() {
+        this.simulacion = new Simulacion();
+    }
 
     public int iniciar() {
         if (!autenticar()) {
@@ -22,7 +26,6 @@ public class ConfiguracionSimulacion {
         System.out.println("Bienvenido a la configuración de la simulación.");
         System.out.println("Por favor, introduce el número de organismos:");
         int numOrganismos = scanner.nextInt();
-        // Aquí puedes usar numOrganismos para configurar la simulación
         System.out.println("La simulación se ha configurado con " + numOrganismos + " organismos.");
         return numOrganismos;
     }
@@ -38,33 +41,28 @@ public class ConfiguracionSimulacion {
 
     public void ejecutarSimulacion(int numOrganismos) {
         Random random = new Random();
-        Dinamicas.enfermedad.organismos = new ArrayList<>(); // Initialize the list
         for (int i = 0; i < numOrganismos; i++) {
-            // Genera características aleatorias para el organismo
             String posicion = "Posición " + (i + 1);
             int salud = random.nextInt(100);
             int edad = random.nextInt(100);
 
-            // Decide qué tipo de organismo crear
             Organismo organismo;
             switch (random.nextInt(4)) {
                 case 0:
-                    organismo = new Abeja(posicion, salud, edad);
+                    organismo = new Abeja(posicion, salud, edad, "reproductivo", "herbívoro", "bosque", 1, "Amarillo");
                     break;
                 case 1:
-                    organismo = new Zorro(posicion, salud, edad);
+                    organismo = new Zorro(posicion, salud, edad, "reproductivo", "carnívoro", "bosque");
                     break;
                 case 2:
-                    organismo = new Rosa(posicion, salud, edad);
+                    organismo = new Rosa(posicion, salud, edad, "reproductivo", "bosque");
                     break;
                 default:
-                    organismo = new AmanitaMuscaria(posicion, salud, edad);
+                    organismo = new Amanitamuscaria(posicion, salud, edad, "reproductivo", "bosque");
                     break;
             }
 
-            // Agrega el organismo a la lista
-            Dinamicas.enfermedad.organismos.add(organismo);
-
+            simulacion.agregarOrganismo(organismo);
             System.out.println("Ejecutando simulación para el organismo " + (i + 1));
         }
     }
