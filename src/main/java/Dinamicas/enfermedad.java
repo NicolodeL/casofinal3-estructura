@@ -11,7 +11,7 @@ public class enfermedad {
         this.organismos = organismos;
     }
 
-    public void realizarEvento() {
+    public static void realizarEvento() {
         for (Organismo organismo : organismos) {
             if (!(organismo instanceof Planta)) {
                 organismo.salud -= 2;
