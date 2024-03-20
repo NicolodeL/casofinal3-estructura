@@ -2,7 +2,7 @@ package ModeloEntidades;
 
 public abstract class Organismo {
     protected String posicion;
-    protected int salud;
+    public int salud;
     protected int edad;
     protected String estadoReproductivo;
     protected String habitat;
