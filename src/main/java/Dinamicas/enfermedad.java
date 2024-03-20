@@ -5,7 +5,7 @@ import ModeloEntidades.Planta;
 import java.util.List;
 
 public class enfermedad {
-    private List<Organismo> organismos;
+    private static List<Organismo> organismos;
 
     public enfermedad(List<Organismo> organismos) {
         this.organismos = organismos;
